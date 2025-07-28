@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALAMOR - Luxury Perfumes | Love in Every Drop</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        body {
+            background-color: #f8f5f2;
+            color: #333;
+            background-image: linear-gradient(rgba(248, 245, 242, 0.9), rgba(248, 245, 242, 0.9)), 
+                            url('https://images.unsplash.com/photo-1615634262417-68ba7ec8d79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: 700;
+            color: #8e6c88;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul li a:hover {
+            color: #8e6c88;
+        }
+        
+        /* Cart Icon */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #8e6c88;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #8e6c88;
+            color: white;
+            padding: 14px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+        }
+        
+        .btn:hover {
+            background-color: #7a5b75;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #8e6c88;
+            color: #8e6c88;
+        }
+        
+        .btn-outline:hover {
+            background-color: #8e6c88;
+            color: white;
+        }
+        
+        /* Featured Products */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+            font-size: 36px;
+            color: #8e6c88;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #8e6c88;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #8e6c88;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .product-img {
+            height: 320px;
+            background-color: #f9f5f7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            cursor: pointer;
+        }
+        
+        .product-img img {
+            max-height: 100%;
+            max-width: 100%;
+            object-fit: contain;
+            transition: transform 0.3s;
+            width: auto;
+            height: auto;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .product-name {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .product-slogan {
+            color: #8e6c88;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        /* About Section */
+        .about {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 80px 0;
+            margin: 80px 0;
+            position: relative;
+        }
+        
+        .about:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, #8e6c88, #c9a8b8, #8e6c88);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 36px;
+            color: #8e6c88;
+            margin-bottom: 25px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #8e6c88;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            background-color: #8e6c88;
+            padding: 60px 0;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+        }
+        
+        .newsletter h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+        }
+        
+        .newsletter-btn {
+            padding: 15px 30px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background-color 0.3s;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #222;
+        }
+        
+        /* Shopping Cart Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 200;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 50px auto;
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 800px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+        
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 28px;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .cart-title {
+            font-size: 28px;
+            color: #8e6c88;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .cart-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #8e6c88;
+        }
+        
+        .cart-items {
+            margin-bottom: 30px;
+        }
+        
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-img {
+            width: 100px;
+            height: 100px;
+            margin-right: 25px;
+            background-color: #f9f5f7;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+        
+        .cart-item-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            width: auto;
+            height: auto;
+        }
+        
+        .cart-item-details {
+            flex: 1;
+        }
+        
+        .cart-item-name {
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 18px;
+        }
+        
+        .cart-item-price {
+            color: #8e6c88;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #f5f5f5;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        
+        .quantity-btn:hover {
+            background-color: #8e6c88;
+            color: white;
+        }
+        
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 0 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        
+        .remove-item {
+            color: #ff6b6b;
+            cursor: pointer;
+            margin-left: 25px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .remove-item:hover {
+            color: #ff0000;
+        }
+        
+        .cart-summary {
+            background-color: #f9f5f7;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+        
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .summary-total {
+            font-weight: 700;
+            font-size: 20px;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        
+        /* Checkout Section */
+        .checkout-section {
+            display: none;
+            margin-top: 30px;
+        }
+        
+        .checkout-title {
+            font-size: 24px;
+            color: #8e6c88;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .checkout-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #8e6c88;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-input:focus {
+            border-color: #8e6c88;
+            outline: none;
+        }
+        
+        .payment-methods {
+            margin-top: 40px;
+        }
+        
+        .payment-title {
+            font-size: 22px;
+            color: #8e6c88;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .payment-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #8e6c88;
+        }
+        
+        .payment-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-option:hover {
+            border-color: #8e6c88;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .payment-option.selected {
+            border-color: #8e6c88;
+            background-color: #f9f5f7;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .payment-icon {
+            margin-right: 20px;
+            font-size: 28px;
+            color: #8e6c88;
+        }
+        
+        .payment-label {
+            flex: 1;
+        }
+        
+        .payment-label div:first-child {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .payment-description {
+            font-size: 14px;
+            color: #777;
+        }
+        
+        .place-order-btn {
+            width: 100%;
+            margin-top: 30px;
+            padding: 16px;
+            font-size: 16px;
+        }
+        
+        /* Order Confirmation */
+        .order-confirmation {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .confirmation-icon {
+            font-size: 80px;
+            color: #4caf50;
+            margin-bottom: 25px;
+        }
+        
+        .confirmation-title {
+            font-size: 32px;
+            color: #8e6c88;
+            margin-bottom: 20px;
+        }
+        
+        .confirmation-message {
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #555;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 70px 0 30px;
+            position: relative;
+        }
+        
+        footer:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 15px;
+            background: linear-gradient(90deg, #8e6c88, #c9a8b8, #8e6c88);
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 20px;
+            margin-bottom: 25px;
+            color: #c9a8b8;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #c9a8b8;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-size: 15px;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .footer-column p {
+            color: #ccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-column i {
+            margin-right: 10px;
+            color: #c9a8b8;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            color: white;
+            background-color: #555;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #8e6c88;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #444;
+            color: #aaa;
+            font-size: 14px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 42px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-top: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 5px 15px;
+            }
+            
+            .hero {
+                height: 70vh;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 30px;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cart-item-img {
+                margin-bottom: 20px;
+                margin-right: 0;
+            }
+            
+            .payment-option {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .payment-icon {
+                margin-bottom: 15px;
+                margin-right: 0;
+            }
+            
+            .cart-actions {
+                flex-direction: column;
+            }
+            
+            .cart-actions .btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/WhatsApp Image 2025-07-27 at 1.43.23 PM (1).jpeg" alt="ALAMOR Logo" class="logo-img">
+                <span class="logo-text">ALAMOR</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#products">Perfumes</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <div class="cart-icon" onclick="openCart()">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Experience Luxury Fragrances</h1>
+            <p>Discover our exquisite collection of perfumes crafted with the finest ingredients from around the world. Each scent tells a unique story.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+    
+    <section id="products" class="container">
+        <h2 class="section-title">Our Signature Collection</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-badge">Bestseller</div>
+                <div class="product-img" onclick="openProductDetail('NOMADIC SHADOW', 89.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/showda_20250727_195142883.jpg', 'Love\\\'s Every Breath', 'Nomadic Shadow is a captivating fragrance that embodies the spirit of adventure and mystery. With top notes of bergamot and pink pepper, a heart of jasmine and patchouli, and base notes of amber and vanilla, this perfume creates an unforgettable olfactory journey. Perfect for those who embrace their free spirit and love to make a statement wherever they go.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/showda_20250727_195142883.jpg" alt="NOMADIC SHADOW Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">NOMADIC SHADOW</h3>
+                    <p class="product-slogan">Love's Every Breath</p>
+                    <p class="product-price">$89.00</p>
+                    <button class="btn" onclick="addToCart('NOMADIC SHADOW', 89.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/showda_20250727_195142883.jpg')">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-badge">New</div>
+                <div class="product-img" onclick="openProductDetail('SECOND WIFE', 95.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/wife.jpeg', 'Love in Every Drop', 'Second Wife is a provocative and alluring fragrance that blends fruity top notes of blackcurrant and pear with a floral heart of peony and freesia, grounded by warm base notes of musk and caramel. This scent is for the confident woman who isn\\\'t afraid to stand out and be remembered. A modern classic that lingers beautifully throughout the day.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/wife.jpeg" alt="SECOND WIFE Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">SECOND WIFE</h3>
+                    <p class="product-slogan">Love in Every Drop</p>
+                    <p class="product-price">$95.00</p>
+                    <button class="btn" onclick="addToCart('SECOND WIFE', 95.00, 'https://images.unsplash.com/photo-1615634262417-68ba7ec8d79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-img" onclick="openProductDetail('ENDURING ALLURE', 92.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/luxe_20250727_195637745.jpg', 'Timeless Elegance', 'Enduring Allure is a sophisticated fragrance that combines classic elegance with modern sensuality. Opening with bright citrus notes of mandarin and grapefruit, it reveals a heart of rose and lily of the valley, before settling into a warm base of sandalwood and tonka bean. This versatile scent transitions beautifully from day to evening, perfect for the woman who appreciates timeless style.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/luxe_20250727_195637745.jpg" alt="ENDURING ALLURE Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ENDURING ALLURE</h3>
+                    <p class="product-slogan">Timeless Elegance</p>
+                    <p class="product-price">$92.00</p>
+                    <button class="btn" onclick="addToCart('ENDURING ALLURE', 92.00, 'https://images.unsplash.com/photo-1615228939098-c6b2b1f59ab8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-badge">Popular</div>
+                <div class="product-img" onclick="openProductDetail('VANILLA ENCHANTMENT', 85.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/vinalli_20250727_195844448.jpg', 'Sweet Seduction', 'Vanilla Enchantment is a deliciously warm and comforting fragrance that wraps you in its sweet embrace. Madagascar vanilla takes center stage, complemented by notes of caramel, almond, and a hint of spicy cinnamon. This gourmand scent is perfect for cold weather or whenever you need a comforting, sweet escape. Long-lasting and addictive, it will have people asking what you\\\'re wearing.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/vinalli_20250727_195844448.jpg" alt="VANILLA ENCHANTMENT Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">VANILLA ENCHANTMENT</h3>
+                    <p class="product-slogan">Sweet Seduction</p>
+                    <p class="product-price">$85.00</p>
+                    <button class="btn" onclick="addToCart('VANILLA ENCHANTMENT', 85.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/vinalli_20250727_195844448.jpg')">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-img" onclick="openProductDetail('ROYAL ESSENCE', 99.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/royal_20250727_19546390.jpg', 'Regal Sophistication', 'Royal Essence is a luxurious fragrance fit for royalty. Opening with sparkling bergamot and blackcurrant, it reveals a regal heart of Bulgarian rose and orris, before drying down to a rich base of oud, patchouli, and vetiver. This opulent scent commands attention and leaves a lasting impression. Perfect for special occasions or when you want to feel like the queen you are.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/royal_20250727_19546390.jpg" alt="ROYAL ESSENCE Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">ROYAL ESSENCE</h3>
+                    <p class="product-slogan">Regal Sophistication</p>
+                    <p class="product-price">$99.00</p>
+                    <button class="btn" onclick="addToCart('ROYAL ESSENCE', 99.00, 'https://images.unsplash.com/photo-1615634262417-68ba7ec8d79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80')">Add to Cart</button>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-badge">Limited</div>
+                <div class="product-img" onclick="openProductDetail('MARRAKESH ECLIPSE', 88.00, '/Users/sahukarirajasekhar/Desktop/untitled folder/eclipse_20250727_195742423.jpg', 'Exotic Mystery', 'Marrakesh Eclipse transports you to the exotic markets of Morocco with its intoxicating blend of spices and florals. Cardamom and saffron open the fragrance, leading to a heart of orange blossom and jasmine absolute, resting on a base of amber, cedar, and leather. This unisex fragrance is perfect for those who love bold, complex scents with an air of mystery and adventure.')">
+                    <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/eclipse_20250727_195742423.jpg" alt="MARRAKESH ECLIPSE Perfume">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">MARRAKESH ECLIPSE</h3>
+                    <p class="product-slogan">Exotic Mystery</p>
+                    <p class="product-price">$88.00</p>
+                    <button class="btn" onclick="addToCart('MARRAKESH ECLIPSE', 88.00, 'https://www.google.com/imgres?q=perfume%20for%20men&imgurl=https%3A%2F%2Fperfumedubai.com%2Fcdn%2Fshop%2Farticles%2Fdior_sauvage_960x.jpg%3Fv%3D1652439946&imgrefurl=https%3A%2F%2Fperfumedubai.com%2Fblogs%2Fnews%2Fbest-perfumes-for-men%3Fsrsltid%3DAfmBOoqm_oIqNxWTGSkk7hOoDEB5bQwdYKShMNNFn_FWMrZ7ZZpGswvD&docid=f19dcJLmtuIHKM&tbnid=JMfHMzz39I4qjM&vet=12ahUKEwiyvOzHtN6OAxWCe2wGHX4TJm8QM3oECAwQAA..i&w=960&h=595&hcb=2&ved=2ahUKEwiyvOzHtN6OAxWCe2wGHX4TJm8QM3oECAwQAA')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="newsletter">
+        <div class="container">
+            <h2>Join Our Fragrance Community</h2>
+            <p>Subscribe to our newsletter and receive exclusive offers, new product announcements, and fragrance tips straight to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>About ALAMOR</h2>
+                <p>ALAMOR is a luxury fragrance brand that captures the essence of elegance, passion, and sophistication in every bottle. Our perfumes are crafted with the finest ingredients sourced from around the world, blended by master perfumers to create unforgettable scents.</p>
+                <p>Each ALAMOR fragrance tells a story - from the mysterious allure of NOMADIC SHADOW to the sweet enchantment of VANILLA ENCHANTMENT. Our philosophy ensures that every scent is imbued with artistry and emotion.</p>
+                <p>Experience the ALAMOR difference - where every spray is a journey, every note a memory, and every fragrance an expression of your unique style.</p>
+            </div>
+            <div class="about-img">
+                <img src="/Users/sahukarirajasekhar/Desktop/untitled folder/alluru_20250727_195258596.jpg" alt="ALAMOR Perfumes Collection">
+            </div>
+        </div>
+    </section>
+    
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeCart()">&times;</span>
+            <h2 class="cart-title">Your Shopping Cart</h2>
+            
+            <div id="cartItems" class="cart-items">
+                <!-- Cart items will be dynamically inserted here -->
+                <p>Your cart is empty</p>
+            </div>
+            
+            <div id="cartSummary" class="cart-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="cartSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping:</span>
+                    <span id="cartShipping">$5.00</span>
+                </div>
+                <div class="summary-row summary-total">
+                    <span>Total:</span>
+                    <span id="cartTotal">$5.00</span>
+                </div>
+            </div>
+            
+            <div class="cart-actions">
+                <button class="btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                <button class="btn btn-outline" onclick="closeCart()">Continue Shopping</button>
+            </div>
+            
+            <!-- Checkout Section -->
+            <div id="checkoutSection" class="checkout-section">
+                <h3 class="checkout-title">Shipping Information</h3>
+                <form id="checkoutForm">
+                    <div class="form-group">
+                        <label class="form-label" for="fullName">Full Name</label>
+                        <input type="text" id="fullName" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="address">Shipping Address</label>
+                        <textarea id="address" class="form-input" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-input" required>
+                    </div>
+                    
+                    <div class="payment-methods">
+                        <h3 class="payment-title">Payment Method</h3>
+                        
+                        <div class="payment-option" onclick="selectPayment('credit')">
+                            <div class="payment-icon">
+                                <i class="far fa-credit-card"></i>
+                            </div>
+                            <div class="payment-label">
+                                <div>Credit/Debit Card</div>
+                                <div class="payment-description">Pay with Visa, Mastercard, or other cards</div>
+                            </div>
+                            <input type="radio" name="payment" id="credit" value="credit" style="display: none;">
+                        </div>
+                        
+                        <div class="payment-option" onclick="selectPayment('gpay')">
+                            <div class="payment-icon">
+                                <i class="fab fa-google-pay"></i>
+                            </div>
+                            <div class="payment-label">
+                                <div>Google Pay</div>
+                                <div class="payment-description">Fast and secure payment with Google Pay</div>
+                            </div>
+                            <input type="radio" name="payment" id="gpay" value="gpay" style="display: none;">
+                        </div>
+                        
+                        <div class="payment-option" onclick="selectPayment('phonepay')">
+                            <div class="payment-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <div class="payment-label">
+                                <div>PhonePe/UPI</div>
+                                <div class="payment-description">Pay with any UPI app</div>
+                            </div>
+                            <input type="radio" name="payment" id="phonepay" value="phonepay" style="display: none;">
+                        </div>
+                        
+                        <div class="payment-option" onclick="selectPayment('cod')">
+                            <div class="payment-icon">
+                                <i class="fas fa-money-bill-wave"></i>
+                            </div>
+                            <div class="payment-label">
+                                <div>Cash on Delivery</div>
+                                <div class="payment-description">Pay when you receive your order</div>
+                            </div>
+                            <input type="radio" name="payment" id="cod" value="cod" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <button type="button" class="btn place-order-btn" onclick="placeOrder()">Place Order</button>
+                </form>
+            </div>
+            
+            <!-- Order Confirmation -->
+            <div id="orderConfirmation" class="order-confirmation">
+                <div class="confirmation-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="confirmation-title">Order Confirmed!</h3>
+                <p class="confirmation-message">Thank you for your purchase. Your order has been placed successfully and will be processed shortly. A confirmation email has been sent to your registered email address with all the details.</p>
+                <button class="btn" onclick="closeCart()">Continue Shopping</button>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>ALAMOR</h3>
+                    <p>Luxury fragrances crafted with passion and precision. Experience the art of perfumery with our exquisite collections that celebrate individuality and style.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Collections</a></li>
+                        <li><a href="#about">Our Story</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Track Order</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column" id="contact">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fragrance Lane, Paris, France</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@alamor.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 9AM - 6PM</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 ALAMOR Perfumes. All Rights Reserved. | Crafted with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in France</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Shopping Cart Functionality
+        let cart = [];
+        
+        // Add to cart function
+        function addToCart(name, price, image) {
+            // Check if item already exists in cart
+            const existingItem = cart.find(item => item.name === name);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+            openCart();
+            
+            // Show notification
+            alert(`${name} has been added to your cart!`);
+        }
+        
+        // Update cart display
+        function updateCart() {
+            const cartItemsElement = document.getElementById('cartItems');
+            const cartCountElement = document.querySelector('.cart-count');
+            const cartSubtotalElement = document.getElementById('cartSubtotal');
+            const cartTotalElement = document.getElementById('cartTotal');
+            
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCountElement.textContent = totalItems;
+            
+            // Calculate subtotal
+            const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+            const shipping = 5.00;
+            const total = subtotal + shipping;
+            
+            cartSubtotalElement.textContent = `$${subtotal.toFixed(2)}`;
+            cartTotalElement.textContent = `$${total.toFixed(2)}`;
+            
+            // Update cart items
+            if (cart.length === 0) {
+                cartItemsElement.innerHTML = '<p>Your cart is empty</p>';
+                return;
+            }
+            
+            let cartItemsHTML = '';
+            cart.forEach(item => {
+                cartItemsHTML += `
+                    <div class="cart-item">
+                        <div class="cart-item-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-details">
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" onclick="updateQuantity('${item.name}', -1)">-</button>
+                                <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                                <button class="quantity-btn" onclick="updateQuantity('${item.name}', 1)">+</button>
+                                <span class="remove-item" onclick="removeItem('${item.name}')"><i class="fas fa-trash"></i> Remove</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItemsElement.innerHTML = cartItemsHTML;
+        }
+        
+        // Update item quantity
+        function updateQuantity(name, change) {
+            const item = cart.find(item => item.name === name);
+            
+            if (item) {
+                item.quantity += change;
+                
+                // Remove item if quantity reaches 0
+                if (item.quantity <= 0) {
+                    cart = cart.filter(item => item.name !== name);
+                }
+                
+                updateCart();
+            }
+        }
+        
+        // Remove item from cart
+        function removeItem(name) {
+            cart = cart.filter(item => item.name !== name);
+            updateCart();
+        }
+        
+        // Open cart modal
+        function openCart() {
+            document.getElementById('cartModal').style.display = 'block';
+            document.getElementById('checkoutSection').style.display = 'none';
+            document.getElementById('orderConfirmation').style.display = 'none';
+        }
+        
+        // Close cart modal
+        function closeCart() {
+            document.getElementById('cartModal').style.display = 'none';
+        }
+        
+        // Proceed to checkout
+        function proceedToCheckout() {
+            if (cart.length === 0) {
+                alert('Your cart is empty. Please add items to proceed to checkout.');
+                return;
+            }
+            
+            document.getElementById('checkoutSection').style.display = 'block';
+            // Scroll to checkout section
+            document.querySelector('.checkout-title').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Select payment method
+        function selectPayment(method) {
+            // Remove selected class from all options
+            document.querySelectorAll('.payment-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            const selectedOption = document.querySelector(`.payment-option[onclick="selectPayment('${method}')"]`);
+            selectedOption.classList.add('selected');
+            
+            // Update radio button
+            document.getElementById(method).checked = true;
+        }
+        
+        // Place order
+        function placeOrder() {
+            // Validate form
+            const form = document.getElementById('checkoutForm');
+            const inputs = form.querySelectorAll('input[required], textarea[required]');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.value.trim()) {
+                    isValid = false;
+                    input.style.borderColor = 'red';
+                } else {
+                    input.style.borderColor = '#ddd';
+                }
+            });
+            
+            // Check payment method selected
+            const paymentSelected = document.querySelector('input[name="payment"]:checked');
+            if (!paymentSelected) {
+                isValid = false;
+                alert('Please select a payment method');
+            }
+            
+            if (!isValid) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // In a real application, you would send this data to your server
+            const orderData = {
+                items: cart,
+                shippingInfo: {
+                    name: document.getElementById('fullName').value,
+                    email: document.getElementById('email').value,
+                    address: document.getElementById('address').value,
+                    phone: document.getElementById('phone').value
+                },
+                paymentMethod: paymentSelected.value,
+                total: parseFloat(document.getElementById('cartTotal').textContent.replace('$', ''))
+            };
+            
+            console.log('Order placed:', orderData);
+            
+            // Show confirmation
+            document.getElementById('checkoutSection').style.display = 'none';
+            document.getElementById('orderConfirmation').style.display = 'block';
+            
+            // Clear cart
+            cart = [];
+            updateCart();
+            
+            // Scroll to confirmation
+            document.querySelector('.confirmation-title').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Open product detail page
+        function openProductDetail(name, price, image, slogan, description) {
+            const productDetailPage = `
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>${name} | ALAMOR</title>
+                    <style>
+                        * {
+                            margin: 0;
+                            padding: 0;
+                            box-sizing: border-box;
+                            font-family: 'Montserrat', sans-serif;
+                        }
+                        body {
+                            background-color: #f8f5f2;
+                            color: #333;
+                            background-image: linear-gradient(rgba(248, 245, 242, 0.9), rgba(248, 245, 242, 0.9)), 
+                                            url('https://images.unsplash.com/photo-1615634262417-68ba7ec8d79f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+                            background-size: cover;
+                            background-attachment: fixed;
+                            background-position: center;
+                        }
+                        .container {
+                            max-width: 1200px;
+                            margin: 0 auto;
+                            padding: 40px 20px;
+                        }
+                        .product-detail {
+                            display: flex;
+                            gap: 50px;
+                            background-color: white;
+                            padding: 40px;
+                            border-radius: 10px;
+                            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                        }
+                        .product-image {
+                            flex: 1;
+                            text-align: center;
+                        }
+                        .product-image img {
+                            max-width: 100%;
+                            max-height: 500px;
+                            object-fit: contain;
+                            width: auto;
+                            height: auto;
+                        }
+                        .product-info {
+                            flex: 1;
+                        }
+                        .product-name {
+                            font-size: 36px;
+                            color: #8e6c88;
+                            margin-bottom: 10px;
+                        }
+                        .product-slogan {
+                            font-size: 18px;
+                            color: #8e6c88;
+                            font-style: italic;
+                            margin-bottom: 20px;
+                        }
+                        .product-price {
+                            font-size: 28px;
+                            font-weight: 700;
+                            margin-bottom: 30px;
+                        }
+                        .product-description {
+                            line-height: 1.8;
+                            margin-bottom: 30px;
+                        }
+                        .btn {
+                            display: inline-block;
+                            background-color: #8e6c88;
+                            color: white;
+                            padding: 14px 35px;
+                            border-radius: 30px;
+                            text-decoration: none;
+                            font-weight: 600;
+                            transition: all 0.3s;
+                            border: none;
+                            cursor: pointer;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            font-size: 14px;
+                        }
+                        .btn:hover {
+                            background-color: #7a5b75;
+                            transform: translateY(-2px);
+                            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                        }
+                        .logo {
+                            text-align: center;
+                            margin-bottom: 40px;
+                        }
+                        .logo img {
+                            height: 60px;
+                        }
+                        @media (max-width: 768px) {
+                            .product-detail {
+                                flex-direction: column;
+                            }
+                        }
+                    </style>
+                    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+                </head>
+                <body>
+                    <div class="container">
+                        <div class="logo">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgNTAwIDUwMCA1MDAiPjxzdHlsZT4udGV4dHtmb250LWZhbWlseTpBcmlhbDtmb250LXdlaWdodDo3MDA7Zm9udC1zaXplOjEyMHB4O2ZpbGw6IzhFNkM4ODt9PC9zdHlsZT48dGV4dCBjbGFzcz0idGV4dCIgeD0iNTAiIHk9IjM1MCI+QUwgQU1PUjwvdGV4dD48L3N2Zz4=" alt="ALAMOR Logo">
+                        </div>
+                        <div class="product-detail">
+                            <div class="product-image">
+                                <img src="${image}" alt="${name}">
+                            </div>
+                            <div class="product-info">
+                                <h1 class="product-name">${name}</h1>
+                                <p class="product-slogan">${slogan}</p>
+                                <p class="product-price">$${price.toFixed(2)}</p>
+                                <p class="product-description">${description}</p>
+                                <button class="btn" onclick="window.opener.addToCart('${name}', ${price}, '${image}'); window.close()">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+                </html>
+            `;
+            
+            const productWindow = window.open('', '_blank');
+            productWindow.document.open();
+            productWindow.document.write(productDetailPage);
+            productWindow.document.close();
+        }
+        
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('cartModal');
+            if (event.target === modal) {
+                closeCart();
+            }
+        }
+    </script>
+</body>
+</html>
